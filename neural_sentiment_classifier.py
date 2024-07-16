@@ -8,10 +8,6 @@ from models import *
 from sentiment_data import *
 from typing import List
 
-####################################################
-# DO NOT MODIFY THIS FILE IN YOUR FINAL SUBMISSION #
-####################################################
-
 
 def _parse_args():
 

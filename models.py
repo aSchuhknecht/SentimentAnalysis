@@ -159,7 +159,7 @@ def train_deep_averaging_network(args, train_exs: List[SentimentExample], dev_ex
                 # truncate longer ones
                 x[i] = x[i][0:max_length]
 
-            # Zero out the gradients from the FFNN object. *THIS IS VERY IMPORTANT TO DO BEFORE CALLING BACKWARD()*
+            # Zero out the gradients from the FFNN object.
             sent.classifier.zero_grad()
 
             log_probs = sent.classifier.forward(torch.Tensor(x).int(), 0)
