@@ -13,10 +13,7 @@ OPTIMAL_STEP_SIZE = 0.1
 
 
 def _parse_args():
-    """
-    Command-line arguments to the system.
-    :return: the parsed args bundle
-    """
+
     parser = argparse.ArgumentParser(description='optimization.py')
     parser.add_argument('--func', type=str, default='QUAD', help='function to optimize (QUAD or NN)')
     parser.add_argument('--lr', type=float, default=1., help='learning rate')
@@ -27,12 +24,7 @@ def _parse_args():
 
 
 def quadratic(x1, x2):
-    """
-    Quadratic function of two variables
-    :param x1: first coordinate
-    :param x2: second coordinate
-    :return:
-    """
+
     return (x1 - 1) ** 2 + 8 * (x2 - 1) ** 2
 
 
@@ -57,12 +49,7 @@ def btls(alpha, beta, eta, x):
 
 
 def quadratic_grad(x1, x2):
-    """
-    Should return a numpy array containing the gradient of the quadratic function defined above evaluated at the point
-    :param x1: first coordinate
-    :param x2: second coordinate
-    :return: a two-dimensional numpy array containing the gradient
-    """
+
     q = np.array([-22,-14.5,13])
     Q = np.array([[13,12,-2],[12,17,6],[-2,6,12]])
     x_star = np.array([1.25814396, 0.31423343, -1.02068144])

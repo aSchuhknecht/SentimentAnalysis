@@ -14,11 +14,7 @@ from typing import List
 
 
 def _parse_args():
-    """
-    Command-line arguments to the system. --model switches between the main modes you'll need to use. The other arguments
-    are provided for convenience.
-    :return: the parsed args bundle
-    """
+
     parser = argparse.ArgumentParser(description='trainer.py')
     parser.add_argument('--model', type=str, default='DAN', help='model to run (TRIVIAL or DAN)')
     parser.add_argument('--train_path', type=str, default='data/train.txt', help='path to train set (you should not need to modify)')
@@ -41,25 +37,12 @@ def _parse_args():
 
 
 def evaluate(classifier, exs, has_typos):
-    """
-    Evaluates a given classifier on the given examples
-    :param classifier: classifier to evaluate
-    :param exs: the list of SentimentExamples to evaluate on
-    :return: None (but prints output)
-    """
+
     return print_evaluation([ex.label for ex in exs], classifier.predict_all([ex.words for ex in exs], has_typos))
 
 
 def print_evaluation(golds: List[int], predictions: List[int]):
-    """
-    Prints evaluation statistics comparing golds and predictions, each of which is a sequence of 0/1 labels.
-    Prints accuracy as well as precision/recall/F1 of the positive class, which can sometimes be informative if either
-    the golds or predictions are highly biased.
 
-    :param golds: gold labels
-    :param predictions: pred labels
-    :return:
-    """
     num_correct = 0
     num_pos_correct = 0
     num_pred = 0

@@ -24,39 +24,25 @@ class Indexer(object):
         return len(self.objs_to_ints)
 
     def get_object(self, index):
-        """
-        :param index: integer index to look up
-        :return: Returns the object corresponding to the particular index or None if not found
-        """
+
         if (index not in self.ints_to_objs):
             return None
         else:
             return self.ints_to_objs[index]
 
     def contains(self, object):
-        """
-        :param object: object to look up
-        :return: Returns True if it is in the Indexer, False otherwise
-        """
+
         return self.index_of(object) != -1
 
     def index_of(self, object):
-        """
-        :param object: object to look up
-        :return: Returns -1 if the object isn't present, index otherwise
-        """
+
         if (object not in self.objs_to_ints):
             return -1
         else:
             return self.objs_to_ints[object]
 
     def add_and_get_index(self, object, add=True):
-        """
-        Adds the object to the index if it isn't present, always returns a nonnegative index
-        :param object: object to look up or add
-        :param add: True by default, False if we shouldn't add the object. If False, equivalent to index_of.
-        :return: The index of the object
-        """
+
         if not add:
             return self.index_of(object)
         if (object not in self.objs_to_ints):
@@ -170,6 +156,7 @@ def test_beam():
     beam.add("e", 8)
     beam.add("f", 6.5)
     print("Should contain e, b, f, c, a: %s" % beam)
+
 
 if __name__ == '__main__':
     test_beam()
